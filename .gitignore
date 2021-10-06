@@ -1,0 +1,8 @@
+__pycache__/
+.idea/
+.DS_Store
+*.sqlite3
+.credentials
+coinoxs/media
+Pipfile
+Pipfile.lock
