@@ -24,7 +24,7 @@ Metadata:
           - MaxCapacity
       - 
         Label: 
-          default: "Amazon Aurora Serverless MySQL DB Configuration"
+          default: "Amazon Aurora Serverless Postgres DB Configuration"
         Parameters: 
           - DBAdminUsername
           - DBPassword
@@ -55,11 +55,11 @@ Parameters:
     Default: wagtailefsaurora 
   WagtailImage:
     Type: String
-    Default: "hsndocker/tokens:2"
+    Default: "hsndocker/tokens:latest"
     Description: Wagtail Image for the ECS service.
   NginxImage:
     Type: String
-    Default: "hsndocker/tokens-nginx:1"
+    Default: "hsndocker/tokens-nginx:latest"
     Description: Nginx Image for the ECS service. 
   MinCapacity:
     Description: Minimum Fargate tasks to run
