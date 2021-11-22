@@ -104,7 +104,7 @@ Parameters:
   DBAdminUsername:
     Description: Please enter a username for the Aurora DB that will be created as part of this stack. 
     Type: String
-    Default: admin
+    Default: tokensAdmin
   DBPassword:
     NoEcho: true
     Description: Please enter a password for the Aurora DB that will be created as part of this stack. 
@@ -149,6 +149,10 @@ Rules:
     Assertions:
       - Assert:  !Equals [ '0', !Ref EfsProvisionedThroughputInMibps ]
         AssertDescription: "EfsProvisionedThroughputInMibps must be 0 when ThroughputMode is bursting"
+  MasterDBUsername:
+    Assertions:
+      - Assert: !Not [ !Equals [ 'admin', !Ref DBAdminUsername ] ]
+        AssertDescription: "MasterUsername admin cannot be used as it is a reserved word used by the engine"
 Conditions:
   IsProvisioned:
     !Equals [ !Ref ThroughputMode, provisioned ]
